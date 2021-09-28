@@ -640,7 +640,7 @@ class Component(abc.Component):
             return asyncio.get_running_loop().create_task(ctx.mark_not_found())
 
         except errors.CommandError as exc:
-            await ctx.respond(exc.message)
+            await ctx.respond(content=exc.content, embeds=exc.embeds)
             return asyncio.get_running_loop().create_future().set_result(None)
 
         if self._slash_hooks:
