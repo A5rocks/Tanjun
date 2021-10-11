@@ -62,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `tanjun.abc.ExecutableCommand.execute` and `check_context` as this doesn't work typing wise.
   This doesn't effect the implementations nor full command types.
 - Base `PermissionsCheck` class.
+- `TanjunWarning` and `StateWarning`.
 
 ## [2.1.1a1] - 2021-10-09
 ### Added
