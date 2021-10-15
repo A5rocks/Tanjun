@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   components, this will propagate down from the client to the command being executed with each level
   having the option to override its state or leave it as is.
 - `OwnerCheck` now relies on a standard dependency (which can easily be overridden) for its actual logic.
+- CommandError and the standard checks now support embed error responses.
 
 ### Changed
 - SlashCommand's ephemeral default now defaults to `None` indicating that the parent entity's state should
@@ -49,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed `ApplicationOwnerCheck` to `OwnerCheck`.
 - Renamed `OwnPermissionsCheck` to `OwnPermissionCheck`.
 - Moved `cache_callback` from `tanjun.injecting` to `tanjun.dependencies`.
+- Renamed `CommandError.message` to `CommandError.content`.
 
 ### Deprecated
 - Passing Iterable[tuple[str, value]] as choices to the slash command options has been deprecated
@@ -77,7 +79,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Let a Sequence of guild ids/objects be passed for `Client.__init__`'s declare_global_commands parameter
   (although custom_ids isn't supported in this instance).
 - Client now enforces that all registered component names are unique within the client.
-- CommandError and the standard checks now support embed error responses.
 
 ### Changed
 - Bumped minimum hikari version to 2.0.0.dev103.
@@ -86,7 +87,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Replace `conversion.ColorConverter` and `conversion.SnowflakeConverter` with `to_snowflake` and `to_color`
   pure function implementations.
 - `Client.load_modules` now errors if no loader descriptor is found.
-- Renamed `CommandError.message` to `CommandError.content`.
 
 ### Deprecated
 - Calling set_tracked_command with a command ID.
