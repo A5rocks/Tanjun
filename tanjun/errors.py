@@ -47,11 +47,11 @@ __all__: list[str] = [
 ]
 
 import typing
+
 import hikari
 
 if typing.TYPE_CHECKING:
     from collections import abc as collections
-
 
 
 class TanjunError(Exception):
@@ -110,7 +110,10 @@ class CommandError(TanjunError):
         * When no message or embed is passed.
     """
 
-    __slots__ = ("embeds", "message",)
+    __slots__ = (
+        "embeds",
+        "message",
+    )
 
     content: hikari.UndefinedOr[str]
     """The response error message's content."""
@@ -118,7 +121,13 @@ class CommandError(TanjunError):
     embeds: hikari.UndefinedOr[collections.Sequence[hikari.Embed]]
     """Sequence of up to (and including) 10 embeds to send as a response."""
 
-    def __init__(self, content: hikari.UndefinedOr[str] = hikari.UNDEFINED, *, embed: hikari.UndefinedOr[hikari.Embed] = hikari.UNDEFINED, embeds: hikari.UndefinedOr[collections.Sequence[hikari.Embed]] = hikari.UNDEFINED) -> None:
+    def __init__(
+        self,
+        content: hikari.UndefinedOr[str] = hikari.UNDEFINED,
+        *,
+        embed: hikari.UndefinedOr[hikari.Embed] = hikari.UNDEFINED,
+        embeds: hikari.UndefinedOr[collections.Sequence[hikari.Embed]] = hikari.UNDEFINED,
+    ) -> None:
         if content is not hikari.UNDEFINED:
             if len(content) > 2000:
                 raise ValueError("Error message cannot be over 2_000 characters long.")
