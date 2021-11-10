@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   by linking it to a client instance. This should make it easier to use Tanjun's dependency injection
   externally.
 - Dependency injection support for hook callbacks.
+- Command cooldowns.
 
 ### Changed
 - `Hooks` can now contain multiple callbacks per hook type.
